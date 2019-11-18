@@ -14,7 +14,7 @@ def pesquisarBanco(pesquisa):
 def baixarCheck(link):
     # Realizar modificação no link para retornar pelo menos 1 diretório para realizar a pesquisa dos arquivos disponíveis
     # link = {código que vai fazer isso}
-    links = subprocess.call(["goofile", "-d", link, "-f", "asc"]) # Realizar mais de uma pesquisa caso necessário
+    links = subprocess.call(["goofile ", "-d ", link, " -f ", "txt ", "| ", "grep ", "txt"]) # Realizar mais de uma pesquisa caso necessário
     # Serão quebrados os links encontrados para o usuário conseguir escolher de quais deles deseja baixar, caso haja apenas um link o usuário não terá a opção de escolha
 
     # Loop feito que realizará a exibição do links
@@ -50,6 +50,7 @@ def verificarCheck(checksum):
     subprocess.call(["sha256sum", "-c", checksum])
     # Printar o resultado da verificação
 
+# Função principal que rodará o programa
 def main():
 
     # Descobre o link do checksum e baixa ele
@@ -58,4 +59,5 @@ def main():
 
     # Verifica o checksum
     verificarCheck(variavelOpção)
+    
 
